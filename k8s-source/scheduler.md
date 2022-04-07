@@ -326,32 +326,89 @@ func SetupSignalContext() context.Context {
 
 ## 总结
 
-整体调用关系如下：
+从 `cmd/kube-scheduler/scheduler.go` 的 `main()` 开始，我们一路追到 `runCommand` ，在 `runCommand()` 中整体调用关系如下：
 ```mermaid
-graph TD;
+flowchart TD
+subgraph runCommand
+direction TB
+context["ctx := context.WithCancel()"]
+gofun["go func() {...}（监听终止信号）"]
+Setup
+Run
+end
 
-main --> runCommand
-runCommand: context.WithCancel 线程同步
+context --> gofun --> Setup --> Run
 
-Setup --> Run
+subgraph Setup
+	opts --生成--> config["c (a.k.a config)"]
+	config --生成--> cc["cc (a.k.a compete config)"]
+	cc --作为参数--> new["sched := scheduler.New(ctx, cc)"]
+end
 
-Setup:
-	opts --> Validate
-	config --> compete 生成 cc
-	scheduler.New()
-
-Run:
-	start:
-	EventBroadcaster.StartRecordingToSink()
-	Healthz
-	InformerFactory
-	DynInformerFactory
-
-	leaderElector.Run
-	sched.Run
+subgraph Run
+	启动辅助线程 --> IsElec{"Election Enabled?"}
+	IsElec --Yes--> Election
+	Election --成为 Leader 后---> Sched["sched.Run(ctx)"]
+	IsElec --No--> Sched
+end
 
 ```
 
+而利用 `context.WithCancel()` ，使各线程得以同时停止，调用关系如下：
+```mermaid
+flowchart LR
+context["context.WithCancel()"] -...->|构造| ctx
+context["context.WithCancel()"] -.->|构造| cancel
+cancel -.->|关闭|ctx
+
+subgraph 辅助线程
+	EventBroadcaster
+	Healthz
+	InformerFactory
+	DynInformerFactory
+end
+
+elector["leaderElector.Run(ctx)"]
+schedrun["sched.Run(ctx)"]
+
+
+ctx -...-> |关闭时停止|EventBroadcaster
+ctx -...-> |关闭时停止|Healthz
+ctx -...-> |关闭时停止|InformerFactory
+ctx -...-> |关闭时停止|DynInformerFactory
+ctx -...-> |关闭时停止|elector
+ctx -...-> |关闭时停止|schedrun
+
+subgraph go["go func() { ... }"]
+终止信号 --> stopCh["stopCh不再堵塞"]
+end
+stopCh -->|触发|cancel
+
+```
+
+而Run 中判断选举逻辑如下
+
+```mermaid
+flowchart LR
+
+subgraph 判断流程
+isLeader["isLeader func() bool"]
+caller["线程中判断是否 Leader"]
+chan{"已关闭？"}
+true
+false
+caller --> isLeader
+isLeader -->|判断 waitingForLeader chan| chan
+chan -->|yes| true["是 Leader"]
+chan -->|no| false["不是 Leader"]
+end
+
+noElec["不选举 （单体 scheduler）"] -..->|关闭|waitingForLeader
+leader["成为 Leader"] -..->|关闭|waitingForLeader
+waitingForLeader -..-> chan
+```
+
+如此，可以通过关闭 waitingForLeader 这个 channel ，来使自己变为 Leader 状态。
 
 
 下次：pkg/scheduler
