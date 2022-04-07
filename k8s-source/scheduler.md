@@ -324,5 +324,34 @@ func SetupSignalContext() context.Context {
 注释已经解释得很明显了。简单来说，就是：当接收到 `SIGTERM` 或 `SIGINT` 信号时， `<-shutdownHandler` 不再阻塞使得 `cancel()` 被调用， `runCommand` 中的 `stopCh` 被关闭不再阻塞，而使 `Run()` 中发起的所有线程同步停止。
 （这个文件内还包括如何保证这两个方法只被执行一次，还预留一个Shutdown接口给内部调用。代码都比较精妙，但是跟我们主要方向无关，就不解释留给各位自己琢磨了。）
 
-这次：流程图[[TODO]]
+## 总结
+
+整体调用关系如下：
+```mermaid
+graph TD;
+
+main --> runCommand
+runCommand: context.WithCancel 线程同步
+
+Setup --> Run
+
+Setup:
+	opts --> Validate
+	config --> compete 生成 cc
+	scheduler.New()
+
+Run:
+	start:
+	EventBroadcaster.StartRecordingToSink()
+	Healthz
+	InformerFactory
+	DynInformerFactory
+
+	leaderElector.Run
+	sched.Run
+
+```
+
+
+
 下次：pkg/scheduler
