@@ -354,11 +354,9 @@ end
 
 ```
 
-而利用 `context.WithCancel()` ，使各线程得以同时停止，调用关系如下：
+而利用 `context.WithCancel()` 构造的出 `ctx` 与 `cancel` ，使各线程得以同时停止，调用关系如下：
 ```mermaid
 flowchart LR
-context["context.WithCancel()"] -...->|构造| ctx
-context["context.WithCancel()"] -.->|构造| cancel
 cancel -.->|关闭|ctx
 
 subgraph 辅助线程
@@ -405,10 +403,11 @@ end
 
 noElec["不选举 （单体 scheduler）"] -..->|关闭|waitingForLeader
 leader["成为 Leader"] -..->|关闭|waitingForLeader
-waitingForLeader -..-> chan
+waitingForLeader -..- chan
 ```
 
 如此，可以通过关闭 waitingForLeader 这个 channel ，来使自己变为 Leader 状态。
 
+scheduler 的 `cmd` 部分就分析完了，逻辑比较简单，就当作入门熟悉一下。从下篇开始我们就进入 `pkg/scheduler` 部分，从 `sched.Run(ctx)` 开始着手，仔细看看 scheduler 是怎样运作的。
 
-下次：pkg/scheduler
+注，以上所提到的 “线程” 均为 Golang 的 goroutine 。
