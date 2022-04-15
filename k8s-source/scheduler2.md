@@ -402,19 +402,67 @@ func (sched *Scheduler) bind(ctx context.Context, fwk framework.Framework, assum
 
 ## 总结一下
 
+我们这次主要分析了 `sched.Run()` 以及 `sched.scheduleOne()` 的内容。
+在 `sched.Run()` 中，我们通过 `wait.UntilWithContext()` 不断循环调用 `sched.scheduleOne()` 。在每次调用中串行执行每个 pod 的调度，并在最后 go 出一个协程进行 bind 操作。类似下图：
 
+```mermaid
+sequenceDiagram
+participant o as schedulePod
 
+activate o
+o -->>+ bindPod1: go
+deactivate o
+activate o
+o -->>+ bindPod2: go
+deactivate o
+activate o
+o -->>+ bindPod3: go
+deactivate o
+activate o
+deactivate bindPod1
+o -->>+ bindPod4: go
+deactivate o
 
+deactivate bindPod2
+deactivate bindPod3
+deactivate bindPod4
 
+```
 
+而对于一个 pod 来说，会经过如下图操作：
 
+```mermaid
+flowchart TD
+subgraph 串行部分
+start(["sched.NextPod()"])
+schedule["sched.Algorithm.Schedule()"]
+postFilter("fwk.RunPostFilterPlugins()")
+assume["sched.assume()"]
+reserve("fwk.RunReservePluginsReserve()")
+permit("fwk.RunPermitPlugins()")
+end
 
+subgraph 并行部分
+waitPermit("fwk.WaitOnPermit()")
+preBind("fwk.RunPreBindPlugins()")
+bind["sched.bind()"]
+unreserve("fwk.RunReservePluginsUnreserve()")
+postBind("fwk.RunPostBindPlugins()")
+end
 
+start --> schedule
+schedule -->|err| postFilter
+schedule -->|success| assume
+assume --> reserve
+reserve --> permit
+permit --> waitPermit
+waitPermit --> preBind
+preBind --> bind
+bind -->|err| unreserve
+bind -->|success| postBind
+```
 
-
-
-
-
+下一篇，我们会深入 `sched.Algorithm.Schedule()` ，仔细探究一下 scheduler 最核心的算法部分。
 
 
 
