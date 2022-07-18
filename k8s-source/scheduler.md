@@ -1,7 +1,7 @@
 # Scheduler
 
 我们看 release-1.23.5 版，commit sha 为 `8ccdbcc8bfc` 。
-切到 release-1.23 分支： `git checkout release-1.23`
+切到 release-1.23 分支： `git checkout release-1.23` 。k8s 的源码使用前需要做一些代码生成，不然有些部分会编译不过。只需要运行 `make` 即可。
 同时我们维护一个 TODO 列表。
 
 ## cmd 入口
