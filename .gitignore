@@ -3,3 +3,7 @@
 
 /jaeger-doc.md
 .vscode/
+/asset.json
+/log.json
+/.vscode/settings.json
+/asset_by_token_and_address.json
