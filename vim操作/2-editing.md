@@ -93,4 +93,7 @@ motion 即是怎么移动。
 - `s` 删除当前字符并进入插入模式, 相当于 `cl`
 - `~` 反转大小写, 相当于 `g~l`
 
+# 暂时切回 Normal Mode
+
+- `<C-o>` 暂时切回 Normal Mode，执行一次命令后再切回 Insert Mode
 
