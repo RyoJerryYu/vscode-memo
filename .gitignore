@@ -8,3 +8,5 @@
 /.vscode/settings.json
 /asset_by_token_and_address.json
 /*.json
+/*.txt
+/*.log
