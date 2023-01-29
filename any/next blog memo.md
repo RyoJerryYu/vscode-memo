@@ -1,3 +1,4 @@
+
 # blog todo
 
 - [x] 复写 markdown parse ，增加 latex 支持
@@ -23,7 +24,23 @@
         做不到， next-mdx-remote 调用 mdx-js ， createProcessor 中会在执行所有 remark 插件之前，先执行 remark-mdx ，无法通过插件修改 
         - https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx
         - https://github.com/mdx-js/mdx/blob/main/packages/mdx/lib/core.js
+- [ ] 处理旧链接跳转
+- [ ] 修复 mermaid 渲染
+    - [ ] 方法1 remark 时处理，变静态 svg （简单）
+    - [ ] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
+        - [ ] 组建渲染时快速刷新可能导致 syntax error
+    - [ ] 可能的处理闪动的信息： 
+        - https://github.com/ant-design/ant-design/issues/16037
+        - https://stackoverflow.com/questions/72248724/components-flicker-during-server-side-render-for-nextjs-and-material-ui
+        - https://www.stackfive.io/work/nextjs/how-to-fix-styled-components-page-flicker-in-next-js-12
+        - https://stackoverflow.com/questions/65527040/using-prism-js-line-highlight-plugin-with-next-js-app-causes-text-content-did-n
+        - https://css-tricks.com/syntax-highlighting-prism-on-a-next-js-site/#aa-highlighting-lines
+        - https://www.felixmokross.dev/blog/code-samples-line-highlighting
 
+- tips:
+    - md syntax -> mdx(react component) : use mdx provider component rewriting (code block to mermaid component)
+    - md syntax -> special html -> use rehype plugin rewriting (katex, highlight)
+    - special md syntax -> use remark plugin rewriting (could not to mdx, should first to html and then mdx provider rewrite)
 
 plus:
 - [ ] https://conv.denshochan.com/markdown
@@ -32,10 +49,8 @@ plus:
     - [ ] Twitter アカウント
     - [ ] ルビ
     - [ ] ものルビ風の熟語ルビ
-    - [ ] 
 - [ ] https://www.haxibami.net/blog/posts/blog-renewal
     - [ ] link card
-    - [ ] image to next image
+    - [ ] image to next image https://zenn.dev/elpnt/articles/c17727e9d254ef00ea60
     - [ ] precompile mermaid
-    - [ ] 
 
