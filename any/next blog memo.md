@@ -18,6 +18,8 @@
     - [x] latex 渲染 弃用，思考 remark-rehype 优先
     - [x] latex 中文渲染
     - [ ] vscode-memo 语法
+        - [ ] 站内多媒体相对链接
+        - [ ] 站内相对链接
     - [x] latex 显示两次
         - [x] katex 需要特殊的 css ，加载后修复
     - [x] 没有闭合的左箭头自动转义
@@ -53,4 +55,8 @@ plus:
     - [ ] link card
     - [ ] image to next image https://zenn.dev/elpnt/articles/c17727e9d254ef00ea60
     - [ ] precompile mermaid
+- [ ] svg 输入
+    - [ ] 绘画工具： KRITA ， 免费，有 mac os 版 https://docs.krita.org/zh_CN/user_manual.html
+    - [ ] KRITA 推荐使用 Inkscape 进行编辑
+
 
