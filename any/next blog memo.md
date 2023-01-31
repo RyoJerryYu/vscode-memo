@@ -17,9 +17,8 @@
     - [x] mermaid 渲染
     - [x] latex 渲染 弃用，思考 remark-rehype 优先
     - [x] latex 中文渲染
-    - [ ] vscode-memo 语法
-        - [ ] 站内多媒体相对链接
-        - [ ] 站内相对链接
+    - [x] vscode-memo 语法
+        - [x] 站内多媒体相对链接
     - [x] latex 显示两次
         - [x] katex 需要特殊的 css ，加载后修复
     - [x] 没有闭合的左箭头自动转义
@@ -27,10 +26,10 @@
         - https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx
         - https://github.com/mdx-js/mdx/blob/main/packages/mdx/lib/core.js
 - [ ] 处理旧链接跳转
-- [ ] 修复 mermaid 渲染
-    - [ ] 方法1 remark 时处理，变静态 svg （简单）
-    - [ ] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
-        - [ ] 组建渲染时快速刷新可能导致 syntax error
+- [x] 修复 mermaid 渲染
+    - [x] 方法1 remark 时处理，变静态 svg （简单）
+    - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
+        - [x] 组建渲染时快速刷新可能导致 syntax error
     - [ ] 可能的处理闪动的信息： 
         - https://github.com/ant-design/ant-design/issues/16037
         - https://stackoverflow.com/questions/72248724/components-flicker-during-server-side-render-for-nextjs-and-material-ui
@@ -58,5 +57,6 @@ plus:
 - [ ] svg 输入
     - [ ] 绘画工具： KRITA ， 免费，有 mac os 版 https://docs.krita.org/zh_CN/user_manual.html
     - [ ] KRITA 推荐使用 Inkscape 进行编辑
+- [ ] vscode 语法站内相对链接
 
 
