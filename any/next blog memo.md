@@ -26,6 +26,13 @@
         - https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx
         - https://github.com/mdx-js/mdx/blob/main/packages/mdx/lib/core.js
 - [ ] 处理旧链接跳转
+    - [ ] path prefix
+        - [ ] 环境变量？配置文件？
+    - [ ] link jump 301 -> 308
+    - [ ] site map https://github.com/iamvishnusankar/next-sitemap
+    - [ ] Rss etc https://github.com/jpmonette/feed
+    - [ ] search lunr？
+    - [ ] 去除 path 中的日期
 - [x] 修复 mermaid 渲染
     - [x] 方法1 remark 时处理，变静态 svg （简单）
     - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
