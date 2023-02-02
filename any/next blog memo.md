@@ -25,14 +25,20 @@
         做不到， next-mdx-remote 调用 mdx-js ， createProcessor 中会在执行所有 remark 插件之前，先执行 remark-mdx ，无法通过插件修改 
         - https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx
         - https://github.com/mdx-js/mdx/blob/main/packages/mdx/lib/core.js
+- [x] 简单的样式
+    - [x] post 页面
+    - [ ] 主页
+    - [ ] about 页
 - [ ] 处理旧链接跳转
     - [ ] path prefix
         - [ ] 环境变量？配置文件？
     - [ ] link jump 301 -> 308
-    - [ ] site map https://github.com/iamvishnusankar/next-sitemap
-    - [ ] Rss etc https://github.com/jpmonette/feed
-    - [ ] search lunr？
     - [ ] 去除 path 中的日期
+    - [ ] site map https://github.com/iamvishnusankar/next-sitemap
+- [ ] git time versioning
+    - [ ] created at
+    - [ ] updated at
+- [ ] 部署脚本
 - [x] 修复 mermaid 渲染
     - [x] 方法1 remark 时处理，变静态 svg （简单）
     - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
@@ -65,5 +71,15 @@ plus:
     - [ ] 绘画工具： KRITA ， 免费，有 mac os 版 https://docs.krita.org/zh_CN/user_manual.html
     - [ ] KRITA 推荐使用 Inkscape 进行编辑
 - [ ] vscode 语法站内相对链接
+    - [ ] Rss etc https://github.com/jpmonette/feed
+    - [ ] mui/base could be very good
+    - [ ] search lunr？ -> mini search https://www.webpro.nl/articles/how-to-add-search-to-your-static-site
+        - [ ] 可以简单参考 3b1b 直接全局 hold 住，然后全文搜索
+    - [ ] blog list pagition (could be later, use infinite scroll)
+- [ ] nextjs 13 app directory https://beta.nextjs.org/docs/getting-started
+- [ ] ja 等多语言支持
+- [ ] 基于 git 的差量 build
+- [ ] 组件 visual testing https://glebbahmutov.com/blog/open-source-visual-testing-of-components/
+
 
 
