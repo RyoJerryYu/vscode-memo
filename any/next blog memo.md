@@ -29,16 +29,20 @@
     - [x] post 页面
     - [ ] 主页
     - [ ] about 页
-- [ ] 处理旧链接跳转
-    - [ ] path prefix
-        - [ ] 环境变量？配置文件？
-    - [ ] link jump 301 -> 308
+- [ ] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
+    - [x] path prefix
+        - [x] 环境变量？配置文件？
+    - [x] site map https://github.com/iamvishnusankar/next-sitemap
     - [ ] 去除 path 中的日期
-    - [ ] site map https://github.com/iamvishnusankar/next-sitemap
+    - [ ] link jump 301 -> 308
 - [ ] git time versioning
     - [ ] created at
     - [ ] updated at
 - [ ] 部署脚本
+    - [x] ghpage
+        - [x] gh page 环境 path 前缀设置，
+        - [x] env file 使用
+    - [ ] s3 test + prod
 - [x] 修复 mermaid 渲染
     - [x] 方法1 remark 时处理，变静态 svg （简单）
     - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
@@ -80,6 +84,8 @@ plus:
 - [ ] ja 等多语言支持
 - [ ] 基于 git 的差量 build
 - [ ] 组件 visual testing https://glebbahmutov.com/blog/open-source-visual-testing-of-components/
-
+- [ ] gh-pages gls
+- [ ] gh-pages public paths
+- [ ] search console?
 
 
