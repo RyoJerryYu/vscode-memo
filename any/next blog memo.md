@@ -29,11 +29,22 @@
     - [x] post 页面
     - [ ] 主页
     - [ ] about 页
+- [ ] SEO 简单
+    - [x] site map https://github.com/iamvishnusankar/next-sitemap
+    - [ ] Header， title
+    - [ ] OG
 - [ ] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
     - [x] path prefix
         - [x] 环境变量？配置文件？
-    - [x] site map https://github.com/iamvishnusankar/next-sitemap
+    - [x] 代码高亮换成静态后 mermaid 也要用 remark 处理
+        - [x] mermaid 内样式 -> 修复 global applyed 的行高
+        - [x] 为什么 haxibami 的样式不会变？为什么是 tspan 和 text ？待探究 -> 是 pie 和 sequence 默认的
+            - [x] maybe rehype-raw ？ -> 不是 rehype-raw 的问题，而且如果用 rehype-raw 会让 mdx 渲染不了显示 Cannot compile `mdxJsxFlowElement` node
+            - [x] https://github.com/mermaid-js/mermaid/issues/2688
+            - [x] turning the htmlLables to false fixed this (maybe other types of charts should be tested as well)
     - [ ] 去除 path 中的日期
+        1. get all slugs once
+        2. get post meta by slug
     - [ ] link jump 301 -> 308
 - [ ] git time versioning
     - [ ] created at
