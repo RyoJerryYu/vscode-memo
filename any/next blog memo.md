@@ -26,14 +26,17 @@
         - https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx
         - https://github.com/mdx-js/mdx/blob/main/packages/mdx/lib/core.js
 - [x] 简单的样式
-    - [x] post 页面
+    - [x] Article 页面
     - [ ] 主页
     - [ ] about 页
+    - [ ] Tag 页
+    - [x] Idea 页
+        - [ ] refactor move meta together
 - [ ] SEO 简单
     - [x] site map https://github.com/iamvishnusankar/next-sitemap
     - [ ] Header， title
     - [ ] OG
-- [ ] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
+- [x] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
     - [x] path prefix
         - [x] 环境变量？配置文件？
     - [x] 代码高亮换成静态后 mermaid 也要用 remark 处理
@@ -42,13 +45,20 @@
             - [x] maybe rehype-raw ？ -> 不是 rehype-raw 的问题，而且如果用 rehype-raw 会让 mdx 渲染不了显示 Cannot compile `mdxJsxFlowElement` node
             - [x] https://github.com/mermaid-js/mermaid/issues/2688
             - [x] turning the htmlLables to false fixed this (maybe other types of charts should be tested as well)
-    - [ ] 去除 path 中的日期
+    - [x] 去除 path 中的日期
         1. get all slugs once
         2. get post meta by slug
-    - [ ] link jump 301 -> 308
-- [ ] git time versioning
-    - [ ] created at
-    - [ ] updated at
+    - [x] 修复 image url 跳转
+    - [x] link jump 301 -> 308
+        - 不能直接在 config 里配置，不会自动静态生成
+        - 在 getStaticProps 里处理:
+            - param 中拿到 slug 以 string[] 出现， slash 无关
+            - build 时出现 error：`redirect` can not be returned from getStaticProps during prerendering
+            - https://nextjs.org/docs/messages/gsp-redirect-during-prerender
+        - 放弃治疗
+- [x] git time versioning
+    - [x] created at
+    - [x] updated at
 - [ ] 部署脚本
     - [x] ghpage
         - [x] gh page 环境 path 前缀设置，
@@ -98,5 +108,6 @@ plus:
 - [ ] gh-pages gls
 - [ ] gh-pages public paths
 - [ ] search console?
+- [ ] reuse https://docs.github.com/en/actions/using-workflows/reusing-workflows
 
 
