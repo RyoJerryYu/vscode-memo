@@ -29,9 +29,11 @@
     - [x] Article 页面
     - [ ] 主页
     - [ ] about 页
-    - [ ] Tag 页
+    - [x] Tag 页
     - [x] Idea 页
-        - [ ] refactor move meta together
+        - [x] refactor move meta together
+- [x] fix post list height
+- [x] fix post list page tag box
 - [ ] SEO 简单
     - [x] site map https://github.com/iamvishnusankar/next-sitemap
     - [ ] Header， title
