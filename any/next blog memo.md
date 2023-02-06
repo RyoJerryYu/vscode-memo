@@ -28,16 +28,22 @@
 - [x] 简单的样式
     - [x] Article 页面
     - [ ] 主页
+        - [ ] https://meola.booth.pm/items
+        - [ ] https://makoto-kaminaga.jimdofree.com/
     - [ ] about 页
     - [x] Tag 页
     - [x] Idea 页
         - [x] refactor move meta together
 - [x] fix post list height
 - [x] fix post list page tag box
-- [ ] SEO 简单
+- [x] SEO 简单
     - [x] site map https://github.com/iamvishnusankar/next-sitemap
-    - [ ] Header， title
-    - [ ] OG
+    - [x] Header， title
+    - [x] OG
+        - [x] og:site_name vs og:title?
+        - [x] og:url?
+    - [ ] footer
+    - [ ] Google Analytics
 - [x] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
     - [x] path prefix
         - [x] 环境变量？配置文件？
@@ -66,6 +72,11 @@
         - [x] gh page 环境 path 前缀设置，
         - [x] env file 使用
     - [ ] s3 test + prod
+        - reusable wrokflow (on workflow call) https://docs.github.com/en/actions/using-workflows/reusing-workflows
+        - composite action (no details, not to use) https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+        - use artifact between workflow https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
+        - an https://stackoverflow.com/questions/70003863/reusing-github-action-workflow-steps-inside-another-job
+        - gh-pages 先用蠢办法， build 上传一次 artifact ，deploy 时在 gh-pages action 里再上传一次
 - [x] 修复 mermaid 渲染
     - [x] 方法1 remark 时处理，变静态 svg （简单）
     - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
@@ -111,5 +122,7 @@ plus:
 - [ ] gh-pages public paths
 - [ ] search console?
 - [ ] reuse https://docs.github.com/en/actions/using-workflows/reusing-workflows
+- [ ] SEO better, og:type=article read more: https://ogp.me/#types
+- [ ] 
 
 
