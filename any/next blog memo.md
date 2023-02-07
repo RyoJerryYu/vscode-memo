@@ -27,9 +27,8 @@
         - https://github.com/mdx-js/mdx/blob/main/packages/mdx/lib/core.js
 - [x] 简单的样式
     - [x] Article 页面
-    - [ ] 主页
-        - [ ] https://meola.booth.pm/items
-        - [ ] https://makoto-kaminaga.jimdofree.com/
+    - [x] 主页
+        - [ ] 主页封面： position: static 不会反应 z-index ，需要 position: 其他值
     - [ ] about 页
     - [x] Tag 页
     - [x] Idea 页
@@ -42,7 +41,7 @@
     - [x] OG
         - [x] og:site_name vs og:title?
         - [x] og:url?
-    - [ ] footer
+    - [x] footer
     - [ ] Google Analytics
 - [x] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
     - [x] path prefix
@@ -123,6 +122,8 @@ plus:
 - [ ] search console?
 - [ ] reuse https://docs.github.com/en/actions/using-workflows/reusing-workflows
 - [ ] SEO better, og:type=article read more: https://ogp.me/#types
-- [ ] 
+- [ ] 参考以下链接优化主页
+    - [ ] https://meola.booth.pm/items
+    - [ ] https://makoto-kaminaga.jimdofree.com/
 
 
