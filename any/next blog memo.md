@@ -29,7 +29,8 @@
     - [x] Article 页面
     - [x] 主页
         - [x] 主页封面： position: static 不会反应 z-index ，需要 position: 其他值
-    - [ ] about 页
+    - [x] about 页
+        - 先不做
     - [x] 其他页的最小高度，处理 footer 不要太高
     - [x] Tag 页
     - [x] Idea 页
@@ -43,6 +44,8 @@
         - [x] og:site_name vs og:title?
         - [x] og:url?
     - [x] footer
+        - [x] icon hover 发光， bg 不要变色
+        - [x] 增加 icon ， Pixiv
     - [ ] Google Analytics
 - [x] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
     - [x] path prefix
