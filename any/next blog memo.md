@@ -28,8 +28,9 @@
 - [x] 简单的样式
     - [x] Article 页面
     - [x] 主页
-        - [ ] 主页封面： position: static 不会反应 z-index ，需要 position: 其他值
+        - [x] 主页封面： position: static 不会反应 z-index ，需要 position: 其他值
     - [ ] about 页
+    - [x] 其他页的最小高度，处理 footer 不要太高
     - [x] Tag 页
     - [x] Idea 页
         - [x] refactor move meta together
