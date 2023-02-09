@@ -80,6 +80,13 @@
         - use artifact between workflow https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
         - an https://stackoverflow.com/questions/70003863/reusing-github-action-workflow-steps-inside-another-job
         - gh-pages 先用蠢办法， build 上传一次 artifact ，deploy 时在 gh-pages action 里再上传一次
+        - [x] Github Action 复用
+        - [x] test infra stack 更新使用 s3 web hosting
+        - [ ] 处理 url 结尾带 slash 问题
+            - https://github.com/keaeriksson/hugo-s3-cloudfront
+            - maybe it's time to serverless https://github.com/serverless-nextjs/serverless-next.js
+            - or just use vercel! 
+        - [ ] 更新 prod （infra ， Deploy ）
 - [x] 修复 mermaid 渲染
     - [x] 方法1 remark 时处理，变静态 svg （简单）
     - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
