@@ -1,6 +1,8 @@
 
 # blog todo
 
+## 一期
+
 - [x] 复写 markdown parse ，增加 latex 支持
     - [x] remark-math
     - [x] rehype-katex
@@ -46,7 +48,6 @@
     - [x] footer
         - [x] icon hover 发光， bg 不要变色
         - [x] 增加 icon ， Pixiv
-    - [ ] Google Analytics
 - [x] 处理旧链接跳转 https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
     - [x] path prefix
         - [x] 环境变量？配置文件？
@@ -70,11 +71,11 @@
 - [x] git time versioning
     - [x] created at
     - [x] updated at
-- [ ] 部署脚本
+- [x] 部署脚本
     - [x] ghpage
         - [x] gh page 环境 path 前缀设置，
         - [x] env file 使用
-    - [ ] s3 test + prod
+    - [x] s3 test + prod
         - reusable wrokflow (on workflow call) https://docs.github.com/en/actions/using-workflows/reusing-workflows
         - composite action (no details, not to use) https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
         - use artifact between workflow https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
@@ -82,27 +83,44 @@
         - gh-pages 先用蠢办法， build 上传一次 artifact ，deploy 时在 gh-pages action 里再上传一次
         - [x] Github Action 复用
         - [x] test infra stack 更新使用 s3 web hosting
-        - [ ] 处理 url 结尾带 slash 问题
-            - https://github.com/keaeriksson/hugo-s3-cloudfront
+        - [x] 处理 url 结尾带 slash 问题
+            - https://github.com/keaeriksson/hugo-s3-cloudfront <- 最终解决方案，用 pulumi 把这个重写一遍
             - maybe it's time to serverless https://github.com/serverless-nextjs/serverless-next.js
             - or just use vercel! 
-        - [ ] 更新 prod （infra ， Deploy ）
+
+        - [x] 更新 prod （infra ， Deploy ）
 - [x] 修复 mermaid 渲染
     - [x] 方法1 remark 时处理，变静态 svg （简单）
     - [x] 方法2 highlight 推延到渲染时处理，用组件包裹 （希望优先）
         - [x] 组建渲染时快速刷新可能导致 syntax error
-    - [ ] 可能的处理闪动的信息： 
+    - [x] 可能的处理闪动的信息： 
         - https://github.com/ant-design/ant-design/issues/16037
         - https://stackoverflow.com/questions/72248724/components-flicker-during-server-side-render-for-nextjs-and-material-ui
         - https://www.stackfive.io/work/nextjs/how-to-fix-styled-components-page-flicker-in-next-js-12
         - https://stackoverflow.com/questions/65527040/using-prism-js-line-highlight-plugin-with-next-js-app-causes-text-content-did-n
         - https://css-tricks.com/syntax-highlighting-prism-on-a-next-js-site/#aa-highlighting-lines
         - https://www.felixmokross.dev/blog/code-samples-line-highlighting
+- [x] 修复：
+    - [x] Home Page 下方链接点击问题
+    - [x] 改进 trailing slash -> lambda 写错，要加 .html 不是 /index.html
+    - [x] 排查 s3 旧文件未删除问题 rm 后加一句 ls debug
+    - [x] tag box 增加 focus
+- [x] reuse https://docs.github.com/en/actions/using-workflows/reusing-workflows
+
+## 二期
+
+- [x] favicon
+- [ ] Google Analytics
+- [ ] test workflow for dependabot
+- [ ] SEO better, og:type=article read more: https://ogp.me/#types
+- [ ] 文章按创建时间倒序
+- [ ] Rss etc https://github.com/jpmonette/feed
 
 - tips:
     - md syntax -> mdx(react component) : use mdx provider component rewriting (code block to mermaid component)
     - md syntax -> special html -> use rehype plugin rewriting (katex, highlight)
     - special md syntax -> use remark plugin rewriting (could not to mdx, should first to html and then mdx provider rewrite)
+
 
 plus:
 - [ ] https://conv.denshochan.com/markdown
@@ -119,7 +137,6 @@ plus:
     - [ ] 绘画工具： KRITA ， 免费，有 mac os 版 https://docs.krita.org/zh_CN/user_manual.html
     - [ ] KRITA 推荐使用 Inkscape 进行编辑
 - [ ] vscode 语法站内相对链接
-    - [ ] Rss etc https://github.com/jpmonette/feed
     - [ ] mui/base could be very good
     - [ ] search lunr？ -> mini search https://www.webpro.nl/articles/how-to-add-search-to-your-static-site
         - [ ] 可以简单参考 3b1b 直接全局 hold 住，然后全文搜索
@@ -128,11 +145,9 @@ plus:
 - [ ] ja 等多语言支持
 - [ ] 基于 git 的差量 build
 - [ ] 组件 visual testing https://glebbahmutov.com/blog/open-source-visual-testing-of-components/
-- [ ] gh-pages gls
-- [ ] gh-pages public paths
+- [x] gh-pages gls 不可能，不支持
+- [x] gh-pages public paths
 - [ ] search console?
-- [ ] reuse https://docs.github.com/en/actions/using-workflows/reusing-workflows
-- [ ] SEO better, og:type=article read more: https://ogp.me/#types
 - [ ] 参考以下链接优化主页
     - [ ] https://meola.booth.pm/items
     - [ ] https://makoto-kaminaga.jimdofree.com/
