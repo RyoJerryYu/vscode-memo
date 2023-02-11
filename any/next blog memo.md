@@ -110,10 +110,12 @@
 ## 二期
 
 - [x] favicon
-- [ ] Google Analytics
+- [x] Google Analytics
+    - [ ] sitemap 检查
 - [ ] test workflow for dependabot
 - [ ] SEO better, og:type=article read more: https://ogp.me/#types
-- [ ] 文章按创建时间倒序
+- [x] 文章按创建时间倒序
+- [x] 写 README 与项目简介
 - [ ] Rss etc https://github.com/jpmonette/feed
 
 - tips:
