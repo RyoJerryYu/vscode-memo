@@ -10,6 +10,7 @@
 - [x] 写 README 与项目简介
 - [ ] Rss etc https://github.com/jpmonette/feed
 - [x] 响应式适配
+- [ ] Protofolio, About
 
 - tips:
     - md syntax -> mdx(react component) : use mdx provider component rewriting (code block to mermaid component)
@@ -27,10 +28,6 @@ plus:
 - [ ] https://www.haxibami.net/blog/posts/blog-renewal
     - [ ] link card
     - [ ] image to next image https://zenn.dev/elpnt/articles/c17727e9d254ef00ea60
-    - [ ] precompile mermaid
-- [ ] svg 输入
-    - [ ] 绘画工具： KRITA ， 免费，有 mac os 版 https://docs.krita.org/zh_CN/user_manual.html
-    - [ ] KRITA 推荐使用 Inkscape 进行编辑
 - [ ] vscode 语法站内相对链接
     - [ ] mui/base could be very good
     - [ ] search lunr？ -> mini search https://www.webpro.nl/articles/how-to-add-search-to-your-static-site
