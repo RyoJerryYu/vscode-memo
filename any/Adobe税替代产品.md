@@ -20,3 +20,9 @@
 - HitFilm Express (free)
 - Aviutl (free)
 - Blender (free)
+
+# 学习
+
+- 予山璥 歌词创意，艺术手法
+- 硬核料理男子Tiger 硬核烹饪指南
+
