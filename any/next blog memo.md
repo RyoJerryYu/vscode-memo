@@ -45,3 +45,11 @@ plus:
     - [ ] https://makoto-kaminaga.jimdofree.com/
 
 
+- [ ] キャラクリ
+- [ ] Serverless Framework
+- [ ] Operating System
+- [ ] Blender 入門
+- [ ] 声つぐり
+
+
+
