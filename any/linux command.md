@@ -274,6 +274,20 @@ Iris mode, Solaris mode:
 
 > これに対して、SolarisモードではCPU3に乗っているプロセスがそのCPUの半分を使用しているとすると、CPU全体に対する割合、つまり50÷4＝12.5%と表示される。Solarisモードでは、すべてのプロセスのCPU使用率を合計すると、きっちり100%となる。
 
+process
+PR	NI	VIRT	RES	SHR	S	%CPU	%MEM	TIME+
+優先度	相対優先度	仮想メモリ	物理メモリ	共有メモリ	状態	CPU使用率	メモリ使用率	実行時間
+
+- NI: Nice value。相対優先度。0が基準で、負だと優先度が高く、正だと優先度が低い。
+- VIRT: Virtual Image。確保された仮想メモリ全て。スワップしたメモリ使用量を含む。
+- RES: Resident size。 スワップしていない、使用した物理メモリのサイズ。
+- SHR: Shared Mem size。 他のプロセスと共有される可能性のあるメモリのサイズ。
+- S: Process Status。 以下のいずれの状態であるかを示している。
+    - D: 割り込み不能
+    - R: 実行中
+    - S: スリープ状態
+    - T: 停止中
+    - Z: ゾンビプロセス
 
 ```
 Help for Interactive Commands - procps-ng version 3.3.10
